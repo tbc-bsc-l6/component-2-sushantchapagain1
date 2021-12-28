@@ -16,6 +16,14 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <!--Links Given by me  -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                 <x-nav-link :href="route('products')">
+                 {{ __('Products') }}
+                 </x-nav-link>
+                </div>         
+                       <!-- Ends Links Given by me  -->
+       
             </div>
 
             <!-- Settings Dropdown -->

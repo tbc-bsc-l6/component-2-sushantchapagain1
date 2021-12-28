@@ -1421,11 +1421,6 @@ select {
 }
 
 /* NAVBAR MINE */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 html {
     scroll-behavior: smooth;
 }
@@ -1454,5 +1449,28 @@ html {
     box-shadow: none !important;
     color: black !important;
 }
+/* ENDS NAVBAR MINE */
 
-/* NAVBAR MINE */
+/* A a product BTN */
+.add-product-btn,
+.edit-product-btn {
+    background: #5e5df0;
+    box-shadow: #5e5df0 0 10px 20px -10px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    /* width: fit-content; */
+    word-break: break-word;
+    border: 0;
+    border-radius: 10px;
+}
+/* margin */
+.mar-top-bott {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+/*Ends A a product BTN */

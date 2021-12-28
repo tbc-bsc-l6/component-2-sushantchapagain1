@@ -23,7 +23,5 @@
     <body class="antialiased">
         @extends('layout')
         @section('content')
-        
-
     </body>
 </html>

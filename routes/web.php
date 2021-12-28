@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Addproduct;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +22,32 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('addproduct',[Addproduct::class,'create']);
-Route::post('addproduct',[Addproduct::class,'store']);
+//route for products view
+Route::get('/products', function () {
+    return view('products');
+})->middleware(['auth'])->name('products');
+
+// route for add product view
+Route::get('/addProduct', function () {
+    return view('addProduct');
+})->middleware(['auth'])->name('addProducts');
+
+// create a new product 
+Route::get('product',[ProductController::class,'create']);
+Route::post('product',[ProductController::class,'store']);
+
+// show all products
+Route::get('/products',[ProductController::class,'show'])->middleware(['auth'])->name('products');
+
+// edit product view route 
+Route::get('product/edit/{id}',[ProductController::class,'edit'])->middleware(['auth'])->name('productedit');
+
+// del product
+Route::delete('/products/{products}',[ProductController::class,'destroy'])->middleware(['auth'])->name('productdelete');
+
+// edit product POST or submit data route
+Route::post('editproduct',[ProductController::class,'update'])->middleware(['auth'])->name('productedit');
+
+
 require __DIR__.'/auth.php';
 ?>
