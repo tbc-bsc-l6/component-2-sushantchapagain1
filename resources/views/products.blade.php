@@ -14,8 +14,11 @@
                         <tr class="font-bold text-left">
                             <!--Re usable component defined in component table-column -->
                             <x-table-column>Name</x-table-column>
-                            <x-table-column>Price</x-table-column>
+                            <x-table-column>Creator Info</x-table-column>
+                            <x-table-column>Title</x-table-column>
+                            <x-table-column>Other info</x-table-column>
                             <x-table-column>Image</x-table-column>
+                            <x-table-column>Price</x-table-column>
                             <x-table-column>Category</x-table-column>
                         </tr>
                     </thead>
@@ -23,8 +26,11 @@
                         @foreach($products as $product)
                         <tr>
                             <x-table-column>{{$product->productname}}</x-table-column>
+                            <x-table-column>{{$product->creatorinfo}}</x-table-column>
+                            <x-table-column>{{$product->title}}</x-table-column>
+                            <x-table-column>{{$product->otherinfo}}</x-table-column>
+                            <x-table-column> <img src="{{ asset('Uploads/products/'.$product->Image) }}" width="70px" height="70px" alt="Product Image"></x-table-column>
                             <x-table-column>{{$product->productprice}}</x-table-column>
-                            <x-table-column>Image</x-table-column>
                             <x-table-column>{{$product->category}}</x-table-column>
                             <x-table-column><a href={{"product/edit/".$product['id']}}>Edit</a></x-table-column>
                             <x-table-column>

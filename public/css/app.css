@@ -1447,7 +1447,6 @@ html {
 
 .navbar-toggler {
     box-shadow: none !important;
-    color: black !important;
 }
 /* ENDS NAVBAR MINE */
 
@@ -1474,3 +1473,7 @@ html {
     margin-bottom: 1rem;
 }
 /*Ends A a product BTN */
+
+.test-color {
+    background-color: orangered;
+}

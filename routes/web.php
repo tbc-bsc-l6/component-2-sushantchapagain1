@@ -46,7 +46,7 @@ Route::get('product/edit/{id}',[ProductController::class,'edit'])->middleware(['
 Route::delete('/products/{products}',[ProductController::class,'destroy'])->middleware(['auth'])->name('productdelete');
 
 // edit product POST or submit data route
-Route::post('editproduct',[ProductController::class,'update'])->middleware(['auth'])->name('productedit');
+Route::post('editproduct/{id}',[ProductController::class,'update'])->middleware(['auth'])->name('productedit');
 
 
 require __DIR__.'/auth.php';

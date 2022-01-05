@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
-
+use Illuminate\Support\Facades\File;
 class ProductController extends Controller
 {
   
@@ -36,15 +36,23 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $attributes = request()->validate([
-            'productname' => 'required', 
-            'productprice' => 'required', 
-            'category' => 'required'
-         ]);
-          Product::create($attributes);
-          return redirect('products');
-          
-        }
+            $product = new Product();
+            $product->productname = $request->input('productname');
+            $product->creatorinfo = $request->input('creatorinfo');
+            $product->title = $request->input('title');
+            $product->otherinfo = $request->input('otherinfo');
+            if($request->hasfile('image')){
+                $file = $request->file('image');
+                $filetype = $file->getClientOriginalExtension();
+                $filename = time().'.'.$filetype;
+                $file->move('Uploads/products/',$filename);
+                $product->image = $filename; 
+            }
+            $product->productprice = $request->input('productprice');
+            $product->category = $request->input('category');
+            $product->save();
+            return redirect('products');
+            }
         
         /**
          * Display the specified resource.
@@ -66,8 +74,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-       $data = Product::find($id);
-       return view('editProduct',['data' => $data]);
+       $product = Product::find($id);
+       return view('editProduct',compact('product'));
     }
 
     /**
@@ -77,14 +85,29 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $req)
+    public function update(Request $request, $id)
     {
-       $data = Product::find($req->id);
-       $data->productname=$req->productname;
-       $data->productprice=$req->productprice;
-       $data->category=$req->category;
-       $data->save();
-       return redirect('products'); 
+        $product = Product::find($id);
+        $product->productname = $request->input('productname');
+        $product->creatorinfo = $request->input('creatorinfo');
+        $product->title = $request->input('title');
+        $product->otherinfo = $request->input('otherinfo');
+        if($request->hasfile('image')){
+
+            $destination = 'Uploads/products/'.$product->Image;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            $file = $request->file('image');
+            $filetype = $file->getClientOriginalExtension();
+            $filename = time().'.'.$filetype;
+            $file->move('Uploads/products/',$filename);
+            $product->image = $filename; 
+        }
+        $product->productprice = $request->input('productprice');
+        $product->category = $request->input('category');
+        $product->update();
+        return redirect('products');
     }
 
     /**
@@ -93,9 +116,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $products)
+    public function destroy($id)
     {
-        $products->delete();
+        $product = Product::find($id);
+        $destination = 'Uploads/products/'.$product->Image;
+        if(File::exists($destination)){
+            File::delete($destination);
+        }
+        $product->delete();
         return back();
     }
 }   

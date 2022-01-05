@@ -17,9 +17,10 @@ class Products extends Migration
             $table->id();
             // $table->foreignId('category_id');
             $table->string('productname');
-            // $table->price('image');
-            // $table->string('title');
-            // $table->integer('duraton');
+            $table->string('creatorinfo');
+            $table->string('title');
+            $table->string('otherinfo');
+            $table->string('Image');
             $table->float('productprice');
             $table->string('category');
             $table->timestamps();
