@@ -11,8 +11,13 @@
             rel="stylesheet"
         />
         <!-- font awsome CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"  />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+        <!--default css -->
         <link rel="stylesheet" href="./css/app.css" />
+        <!-- My css -->
+        <link rel="stylesheet" href="./css/styles.css">  
+        <!-- owl caurosel css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"  />
     </head>
     <body>
         <!-- NAVBAR STARTS -->
@@ -43,10 +48,12 @@
                                 >Home</a
                             >
                         </li>
-                        <!-- <li class="nav-item">
-              <a class="nav-link" href="">Link</a>
-            </li> -->
                     </ul>
+                    <form method="get" action="#" class="form-inline my-2 my-lg-0">
+      <input class="mr-sm-2" name="search" type="text" value="{{request('search')}}" placeholder="Search">
+      <button class="btn my-1 my-sm-0" style="background-color:#5e5df0;color:#fff;padding:8px 12px">Search</button>
+    </form>       
+
                     <ul class="navbar-nav ms-auto">
                         @if (Route::has('login'))
                         <li class="nav-item">
@@ -75,5 +82,8 @@
         <!-- NAVBAR ENDS -->
         @yield('content')
     </body>
+    <script src="./js/slider.js"></script>
+    <!-- owl js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>

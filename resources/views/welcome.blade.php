@@ -21,7 +21,13 @@
         </style>
     </head>
     <body class="antialiased">
+        <!-- navbar -->
         @extends('layout')
         @section('content')
+        <!-- hero section -->
+        @extends('homepage')
+        @section('home')
+    
+
     </body>
 </html>

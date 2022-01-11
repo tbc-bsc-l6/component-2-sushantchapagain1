@@ -10,7 +10,7 @@
           <form  method="POST" action="product" enctype="multipart/form-data"> 
               @csrf
             <div class="text-center p-3">
-                <input class="border border-gray-400 p-2 w-full"
+                <input class="border border-gray-400 p-2 w-96"
                 type="text"
                 name="productname"
                 placeholder="Product Name"
@@ -23,7 +23,7 @@
             
                       <!-- more info about Author Artist/console -->
                       <div class="text-center p-3">
-                <input class="border border-gray-400 p-2 w-full"
+                <input class="border border-gray-400 p-2 w-80"
                 type="text"
                 name="creatorinfo"
                 placeholder="Author / Artist / Console"
@@ -35,7 +35,7 @@
 
                          <!-- title or slug-->
                          <div class="text-center p-3">
-                <input class="border border-gray-400 p-2 w-full"
+                <input class="border border-gray-400 p-2 w-80"
                 type="text"
                 name="title"
                 placeholder="Title"
@@ -48,7 +48,7 @@
               <!-- pages/Duration/Gameing Info -->
 
             <div class="text-center p-3">
-                <input class="border border-gray-400 p-2 w-full"
+                <input class="border border-gray-400 p-2 w-80"
                 type="text"
                 name="otherinfo"
                 placeholder="Pages / Duration / Gaming Info"
@@ -59,7 +59,7 @@
             </div>
                    <!-- Image -->
             <div class="text-center p-3">
-                <input class="border border-gray-400 p-2 w-full"
+                <input class="border border-gray-400 p-2 w-80"
                 type="file"
                 name="image"
                   ></input>
@@ -67,7 +67,7 @@
 
 
             <div class="text-center p-3">
-                <input class="border border-gray-400 p-2 w-full"
+                <input class="border border-gray-400 p-2 w-80"
                 type="text"
                 name="productprice"
                 placeholder="Product Price"
@@ -78,11 +78,14 @@
             </div>
 
             <div class="text-center p-3">
-                <select name="category" class="p-6 w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-                <option value="Select a Category" disabled >Select a Category</option>
-                <option name="books" value="books">Books</option>
-                <option name="cd" value="cd">CD</option>
-                <option name="games" value="games">Games</option>
+                <select name="category_id" class="p-6 w-half bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                  <option value="Select a Category" disabled >Select a Category</option>
+                  @php
+                  $categories = App\Models\Category::all();
+                  @endphp
+                  @foreach($categories as $category)
+                  <option value="{{$category->id}}">{{ucwords($category->name)}}</option>
+                  @endforeach
                 </select>
             </div>
 

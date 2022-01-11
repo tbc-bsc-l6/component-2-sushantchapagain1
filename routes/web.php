@@ -36,17 +36,22 @@ Route::get('/addProduct', function () {
 Route::get('product',[ProductController::class,'create']);
 Route::post('product',[ProductController::class,'store']);
 
-// show all products
+// show products for admin for crud
 Route::get('/products',[ProductController::class,'show'])->middleware(['auth'])->name('products');
 
 // edit product view route 
 Route::get('product/edit/{id}',[ProductController::class,'edit'])->middleware(['auth'])->name('productedit');
 
+// edit product POST or submit data route
+Route::post('editproduct/{id}',[ProductController::class,'update'])->middleware(['auth'])->name('productedit');
+
 // del product
 Route::delete('/products/{products}',[ProductController::class,'destroy'])->middleware(['auth'])->name('productdelete');
 
-// edit product POST or submit data route
-Route::post('editproduct/{id}',[ProductController::class,'update'])->middleware(['auth'])->name('productedit');
+// show all products to homepage for user
+Route::get('/',[ProductController::class,'showProduct']);
+
+
 
 
 require __DIR__.'/auth.php';

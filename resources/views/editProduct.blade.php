@@ -75,12 +75,15 @@
                 ></input>
             </div>
 
-            <div class="text-center p-6">
-                <select name="category" class="p-6 w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-                <option value="Select a Category" disabled >Select a Category</option>
-                <option name="books">Books</option>
-                <option name="cd">CD</option>
-                <option name="games">Games</option>
+            <div class="text-center p-3">
+                <select name="category_id" class="p-6 w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                  <option value="Select a Category" disabled >Select a Category</option>
+                  @php
+                  $categories = App\Models\Category::all();
+                  @endphp
+                  @foreach($categories as $category)
+                  <option value="{{$category->id}}">{{ucwords($category->name)}}</option>
+                  @endforeach
                 </select>
             </div>
 

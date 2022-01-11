@@ -1419,37 +1419,14 @@ select {
         padding-right: 2rem;
     }
 }
+/* needed for admin styling */
 
-/* NAVBAR MINE */
-html {
-    scroll-behavior: smooth;
+.edit-btn {
+    color: #5e5df0;
 }
-.navbar-brand {
-    color: black;
+.delete-btn {
+    color: rgb(206, 7, 7);
 }
-.nav-style {
-    background: #ffffff;
-    box-shadow: 0 0.125rem 1.75rem 0 rgba(0, 0, 0, 0.1);
-    font-size: 0.9375rem;
-    color: black;
-    font-weight: 600;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-}
-
-.nav-link {
-    font-size: 0.9375rem;
-    color: black;
-    font-weight: 600;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-}
-
-.navbar-toggler {
-    box-shadow: none !important;
-}
-/* ENDS NAVBAR MINE */
-
 /* A a product BTN */
 .add-product-btn,
 .edit-product-btn {
@@ -1471,9 +1448,4 @@ html {
 .mar-top-bott {
     margin-top: 1rem;
     margin-bottom: 1rem;
-}
-/*Ends A a product BTN */
-
-.test-color {
-    background-color: orangered;
 }

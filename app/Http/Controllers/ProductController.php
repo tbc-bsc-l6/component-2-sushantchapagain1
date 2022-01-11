@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Support\Facades\File;
 class ProductController extends Controller
 {
@@ -25,7 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('addproduct.create');   
+        return view('addproduct');   
     }
 
     /**
@@ -49,9 +50,9 @@ class ProductController extends Controller
                 $product->image = $filename; 
             }
             $product->productprice = $request->input('productprice');
-            $product->category = $request->input('category');
+            $product->category_id = $request->input('category_id');
             $product->save();
-            return redirect('products');
+            return redirect('products')->with('success', 'Product has been Added.');
             }
         
         /**
@@ -62,7 +63,7 @@ class ProductController extends Controller
          */
         public function show()
         {
-            $products = Product::all();
+            $products = Product::paginate(5);
             return view('products',['products' => $products]);
         }
 
@@ -105,7 +106,7 @@ class ProductController extends Controller
             $product->image = $filename; 
         }
         $product->productprice = $request->input('productprice');
-        $product->category = $request->input('category');
+        $product->category_id = $request->input('category_id');
         $product->update();
         return redirect('products');
     }
@@ -125,6 +126,22 @@ class ProductController extends Controller
         }
         $product->delete();
         return back();
+    }
+    public function showProduct()
+    {
+        // search filter
+        if(request('search')){
+            $products = Product::latest()->where('productname','like','%'.request('search').'%')
+            ->orWhere('title','like','%'.request('search').'%')->paginate(10);
+            $categories = Category::get();
+            return view('welcome',compact('products','categories'));
+        }
+        
+        else{
+            $products = Product::filter(request(['category']))->paginate(10);
+            $categories = Category::get();
+            return view('welcome',compact('products','categories'));
+        }
     }
 }   
 
