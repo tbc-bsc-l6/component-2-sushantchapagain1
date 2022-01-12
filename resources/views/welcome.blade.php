@@ -24,10 +24,9 @@
         <!-- navbar -->
         @extends('layout')
         @section('content')
-        <!-- hero section -->
         @extends('homepage')
         @section('home')
-    
-
+        <!-- hero section -->
+         <x-flash/>       
     </body>
 </html>

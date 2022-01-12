@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\File;
 class ProductController extends Controller
 {
@@ -108,7 +109,7 @@ class ProductController extends Controller
         $product->productprice = $request->input('productprice');
         $product->category_id = $request->input('category_id');
         $product->update();
-        return redirect('products');
+        return redirect('products')->with('success', 'Product has been Edited.');
     }
 
     /**
@@ -125,24 +126,47 @@ class ProductController extends Controller
             File::delete($destination);
         }
         $product->delete();
-        return back();
+        return back()->with('success', 'Product has been Deleted.');
     }
     public function showProduct()
     {
         // search filter
         if(request('search')){
             $products = Product::latest()->where('productname','like','%'.request('search').'%')
-            ->orWhere('title','like','%'.request('search').'%')->paginate(10);
+            ->orWhere('creatorinfo','like','%'.request('search').'%')->paginate(10);
             $categories = Category::get();
             return view('welcome',compact('products','categories'));
         }
-        
+
         else{
             $products = Product::filter(request(['category']))->paginate(10);
             $categories = Category::get();
             return view('welcome',compact('products','categories'));
         }
     }
+
+    // NEWS LETTER
+    public function newsLetter(){
+    request()->validate(['email' => 'required|email']);
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us20'
+    ]);
+    try {
+    $response = $mailchimp->lists->addListMember(config('services.mailchimp.lists.subscribers'),[
+        'email_address' => request('email'),
+        'status' => 'subscribed'
+        ]);
+    }
+     catch(\Exception $e){
+       throw \Illuminate\Validation\ValidationException::withMessages([
+            'email' => 'This email could not be sent to our Newsletter.'
+        ]);
+    }
+        return redirect('/')->with('success','You are now signed up for our newsletter');
+}
 }   
 
 ?>

@@ -52,29 +52,31 @@
 
 <!-- ******************************************* -->
     <!-- category -->
+    <div class="text-center p-3" style="font-size: 20px">Category</div>
     <div class="category">
       @foreach($categories as $category)  
     <a href="/?category={{$category->name}}">{{$category->name}}</a>
       @endforeach
     </div>
+  
 <!-- ******************************************* -->
 
 
   <!-- Products -->
-  <span>{{$products->links()}} </span>
-  <h1 class="text-center p-3">Products</h1>
+  <h1 class="text-center p-3" style="font-size: 20px">Products</h1>
   <div class="products">
-      <!-- Product -->
-      @foreach($products as $product)
-      <div class="product-card">
-        <img src="{{ asset('Uploads/products/'.$product->Image) }}" alt="fifa22" class="product-img" />
-        <h4 class="product-title">{{$product->productname}}</h4>
-        <p class="card-desc">{{$product->title}}</p>
-        <p class="product-category">{{$product->category->name}}</p>
-        <p class="product-price">${{$product->productprice}}</p>
-        <button class="buy-now">Buy Now</button>
-      </div>
-      @endforeach
-      <!-- product Ends -->
+    <!-- Product -->
+    @foreach($products as $product)
+    <div class="product-card">
+      <img src="{{ asset('Uploads/products/'.$product->Image) }}" alt="product image" class="product-img" />
+      <h4 class="product-title">{{$product->productname}}</h4>
+      <p class="card-desc">{{$product->title}}</p>
+      <p class="product-category">{{$product->category->name}}</p>
+      <p class="product-price">${{$product->productprice}}</p>
+      <button class="buy-now">Buy Now</button>
     </div>
+    @endforeach
+    <!-- product Ends -->
+  </div>
+  <span>{{$products->links()}} </span>
       @yield('home')

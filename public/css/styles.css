@@ -1,4 +1,4 @@
-MINE CSS ::root {
+::root {
     --theme: #5e5df0;
     --black: #000;
     --white: #fff;
@@ -18,10 +18,10 @@ html {
 
 body {
     font-family: "Rubik", sans-serif;
-    font-size: 1.6rem;
-    background-color: var(--white);
+    /* font-size: 1.6rem; */
+    background-color: #fff;
     color: #333;
-    font-weight: 400;
+    /* font-weight: 400; */
 }
 
 .navbar-brand {
@@ -34,6 +34,9 @@ body {
     font-weight: 600;
     text-transform: capitalize;
     letter-spacing: 1px;
+    position: absolute;
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
 }
 
 .nav-link {
@@ -278,7 +281,6 @@ body {
     margin: 50px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    /* grid-template-rows: 1fr 1fr; */
     column-gap: 50px;
     row-gap: 40px;
     font-size: 16px;
@@ -303,7 +305,7 @@ body {
     height: 180px;
     width: 100%;
     border-radius: 12px 12px 0 0;
-    margin-bottom: 1rem;
+    margin-bottom: 14px;
 }
 .product-img:hover {
     transform: scale(1.1);
@@ -311,7 +313,7 @@ body {
     overflow: hidden;
 }
 .product-title {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
     font-weight: bold;
 }
 .card-desc {
@@ -323,10 +325,10 @@ body {
     padding: 2px 6px;
     border-radius: 20px;
     color: #fff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 .product-price {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
 }
 .buy-now {
     border: 1.5px solid #5e5df0;

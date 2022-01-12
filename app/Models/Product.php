@@ -11,9 +11,6 @@ class Product extends Model
     protected $guarded = [];
 
     public function scopeFilter($query,array $filters){
-
-        
-  
         $query->when($filters['category'] ?? false,fn($query,$category)=>
            $query
            ->whereHas('category',fn($query)=>

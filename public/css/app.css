@@ -27,6 +27,7 @@
 */
 
 html {
+    scroll-behavior: smooth;
     line-height: 1.5; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
     -moz-tab-size: 4; /* 3 */
@@ -1448,4 +1449,25 @@ select {
 .mar-top-bott {
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+.subs-footer {
+    background-color: #efeffe;
+    margin-top: 20px;
+}
+
+.btn-subs {
+    background-color: #5e5df0;
+    color: #fff;
+    border: 1px solid #5e5df0;
+}
+
+.flash-message {
+    background-color: #5e5df0;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    padding: 0.7rem;
+    margin: 8px;
+    border-radius: 12px;
 }

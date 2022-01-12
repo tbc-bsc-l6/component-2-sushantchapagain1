@@ -38,9 +38,7 @@
                 value="{{$product->title}}"
                 placeholder="Title"
                   ></input>
-                  @error('Title')
-                  <p class="text-red-500 text-ms mt-2">{{$message}}</p>
-                    @enderror
+              
             </div>
 
                 <!-- pages/Duration/Gameing Info -->
