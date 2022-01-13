@@ -17,20 +17,20 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Product::factory(20)->create([
             'category_id' =>1,
-            'Image'=>'1641547450.jpg'
+            'Image'=>'books.png'
         ]);
 
         
 
         \App\Models\Product::factory(20)->create([
             'category_id' =>2,
-            'Image'=>'1641547450.jpg'
+            'Image'=>'cd.png'
         ]);
 
         
         \App\Models\Product::factory(20)->create([
             'category_id' =>3,
-            'Image'=>'1641547450.jpg'
+            'Image'=>'fifa.png'
         ]);
     }
 }

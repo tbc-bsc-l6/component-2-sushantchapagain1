@@ -9,7 +9,7 @@
           <form  method="POST" action="{{ url('editproduct/'.$product->id) }}" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="id" value="{{$product->id}}" ></input>
-            <div class="text-center p-6">
+            <div class="text-center p-3 mb-2 form-margin">
                 <input class="border border-gray-400 p-2 w-full"
                 type="text"
                 name="productname"
@@ -19,8 +19,8 @@
                   ></input>
             </div>
 
-            <div class="text-center p-6">
-                <input class="border border-gray-400 p-2 w-full"
+            <div class="text-center p-3 form-margin">
+                <input class="border border-gray-400 p-2 w-full "
                 type="text"
                 name="creatorinfo"
                 value="{{$product->creatorinfo}}"
@@ -30,7 +30,7 @@
             </div>
 
                       <!-- title or slug-->
-                      <div class="text-center p-3">
+                      <div class="text-center p-3 form-margin">
                 <input class="border border-gray-400 p-2 w-full"
                 type="text"
                 name="title"
@@ -43,7 +43,7 @@
 
                 <!-- pages/Duration/Gameing Info -->
 
-                <div class="text-center p-3">
+                <div class="text-center p-3 form-margin">
                 <input class="border border-gray-400 p-2 w-full"
                 type="text"
                 name="otherinfo"
@@ -53,16 +53,15 @@
                   ></input>
             </div>
                       <!-- Image -->
-                      <div class="text-center p-3">
+                      <div class="text-center p-3 form-margin">
                  <img src="{{ asset('Uploads/products/'.$product->Image) }}" width="70px" height="70px" alt="Product Image">
                 <input class="border border-gray-400 p-2 w-full"
                 type="file"
                 name="image"
-                required
                   ></input>
             </div>
                    
-            <div class="text-center p-6">
+            <div class="text-center p-3 form-margin">
                 <input class="border border-gray-400 p-2 w-full"
                 type="number"
                 min="1"
@@ -73,8 +72,8 @@
                 ></input>
             </div>
 
-            <div class="text-center p-3">
-                <select name="category_id" class="p-6 w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+            <div class="text-center p-3 form-margin">
+                <select name="category_id" class="p-3 w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                   <option value="Select a Category" disabled >Select a Category</option>
                   @php
                   $categories = App\Models\Category::all();
@@ -85,7 +84,7 @@
                 </select>
             </div>
 
-            <div class="text-center mb-6">
+            <div class="text-center mb-6 form-margin">
             <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
             type="submit"
             >

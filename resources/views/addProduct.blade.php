@@ -9,8 +9,8 @@
       <main class="max-w-lg mx-auto mt-10">
           <form  method="POST" action="product" enctype="multipart/form-data"> 
               @csrf
-            <div class="text-center p-3">
-                <input class="border border-gray-400 p-2 w-96"
+            <div class="text-center p-3 form-margin">
+                <input class="border border-gray-400 p-2 w-full"
                 type="text"
                 name="productname"
                 placeholder="Product Name"
@@ -18,9 +18,8 @@
             </div>
 
             
-                      <!-- more info about Author Artist/console -->
-                      <div class="text-center p-3">
-                <input class="border border-gray-400 p-2 w-80"
+                      <div class="text-center p-3 form-margin">
+                <input class="border border-gray-400 p-2 w-full"
                 type="text"
                 name="creatorinfo"
                 placeholder="Author / Artist / Console"
@@ -30,8 +29,8 @@
             </div>
 
                          <!-- title or slug-->
-                         <div class="text-center p-3">
-                <input class="border border-gray-400 p-2 w-80"
+                         <div class="text-center p-3 form-margin">
+                <input class="border border-gray-400 p-2 w-full"
                 type="text"
                 name="title"
                 placeholder="Title"
@@ -42,8 +41,8 @@
 
               <!-- pages/Duration/Gameing Info -->
 
-            <div class="text-center p-3">
-                <input class="border border-gray-400 p-2 w-80"
+            <div class="text-center p-3 form-margin">
+                <input class="border border-gray-400 p-2 w-full"
                 type="text"
                 name="otherinfo"
                 placeholder="Pages / Duration / Gaming Info"
@@ -51,8 +50,8 @@
                   ></input>
             </div>
                    <!-- Image -->
-            <div class="text-center p-3">
-                <input class="border border-gray-400 p-2 w-80"
+            <div class="text-center p-3 form-margin">
+                <input class="border border-gray-400 p-2 w-full"
                 type="file"
                 name="image"
                 required
@@ -60,8 +59,8 @@
             </div>
 
 
-            <div class="text-center p-3">
-                <input class="border border-gray-400 p-2 w-80"
+            <div class="text-center p-3 form-margin">
+                <input class="border border-gray-400 p-2 w-full"
                 type="text"
                 name="productprice"
                 placeholder="Product Price"
@@ -70,8 +69,8 @@
          
             </div>
 
-            <div class="text-center p-3">
-                <select name="category_id" class="p-6 w-half bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+            <div class="text-center p-3 form-margin">
+                <select name="category_id" class="p-6 w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                   <option value="Select a Category" disabled >Select a Category</option>
                   @php
                   $categories = App\Models\Category::all();
