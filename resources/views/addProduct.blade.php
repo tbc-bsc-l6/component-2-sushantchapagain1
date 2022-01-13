@@ -14,10 +14,7 @@
                 type="text"
                 name="productname"
                 placeholder="Product Name"
-                  ></input>
-                  @error('productname')
-                  <p class="text-red-500 text-ms mt-2">{{$message}}</p>
-                    @enderror
+                 required  ></input>
             </div>
 
             
@@ -27,10 +24,9 @@
                 type="text"
                 name="creatorinfo"
                 placeholder="Author / Artist / Console"
-                  ></input>
-                  @error('Author Artist Console Info')
-                  <p class="text-red-500 text-ms mt-2">{{$message}}</p>
-                    @enderror
+                required  
+                ></input>
+    
             </div>
 
                          <!-- title or slug-->
@@ -39,10 +35,9 @@
                 type="text"
                 name="title"
                 placeholder="Title"
+                required
                   ></input>
-                  @error('Title')
-                  <p class="text-red-500 text-ms mt-2">{{$message}}</p>
-                    @enderror
+      
             </div>
 
               <!-- pages/Duration/Gameing Info -->
@@ -52,16 +47,15 @@
                 type="text"
                 name="otherinfo"
                 placeholder="Pages / Duration / Gaming Info"
+                required
                   ></input>
-                  @error('Pages/Duration/PEGI')
-                  <p class="text-red-500 text-ms mt-2">{{$message}}</p>
-                    @enderror
             </div>
                    <!-- Image -->
             <div class="text-center p-3">
                 <input class="border border-gray-400 p-2 w-80"
                 type="file"
                 name="image"
+                required
                   ></input>
             </div>
 
@@ -71,10 +65,9 @@
                 type="text"
                 name="productprice"
                 placeholder="Product Price"
-                  ></input>
-                  @error('productprice')
-                  <p class="text-red-300 text-ms mt-2">{{$message}}</p>
-                    @enderror
+                required 
+                ></input>
+         
             </div>
 
             <div class="text-center p-3">

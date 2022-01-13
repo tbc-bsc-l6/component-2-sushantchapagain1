@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +54,11 @@ Route::get('/',[ProductController::class,'showProduct']);
 
 // mailchimp
 Route::post('newsletter',[ProductController::class,'newsLetter']);
+
+// dashboard Controller showing number of products
+
+Route::get('/dashboard',[DashboardController::class,'count'])->middleware(['auth','admin'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';
 

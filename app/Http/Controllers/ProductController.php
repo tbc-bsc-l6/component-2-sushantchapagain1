@@ -64,7 +64,7 @@ class ProductController extends Controller
          */
         public function show()
         {
-            $products = Product::paginate(5);
+            $products = Product::paginate(15);
             return view('products',['products' => $products]);
         }
 
@@ -133,13 +133,13 @@ class ProductController extends Controller
         // search filter
         if(request('search')){
             $products = Product::latest()->where('productname','like','%'.request('search').'%')
-            ->orWhere('creatorinfo','like','%'.request('search').'%')->paginate(10);
+            ->orWhere('creatorinfo','like','%'.request('search').'%')->paginate(15);
             $categories = Category::get();
             return view('welcome',compact('products','categories'));
         }
 
         else{
-            $products = Product::filter(request(['category']))->paginate(10);
+            $products = Product::filter(request(['category']))->paginate(15);
             $categories = Category::get();
             return view('welcome',compact('products','categories'));
         }

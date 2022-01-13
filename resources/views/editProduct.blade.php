@@ -15,6 +15,7 @@
                 name="productname"
                 value="{{$product->productname}}"
                 placeholder="Product Name"
+                required
                   ></input>
             </div>
 
@@ -24,10 +25,8 @@
                 name="creatorinfo"
                 value="{{$product->creatorinfo}}"
                 placeholder="Author / Artist / Console"
+                required
                   ></input>
-                  @error('Author Artist Console Info')
-                  <p class="text-red-500 text-ms mt-2">{{$message}}</p>
-                    @enderror
             </div>
 
                       <!-- title or slug-->
@@ -37,6 +36,7 @@
                 name="title"
                 value="{{$product->title}}"
                 placeholder="Title"
+                required
                   ></input>
               
             </div>
@@ -49,10 +49,8 @@
                 name="otherinfo"
                 placeholder="Pages / Duration / Gaming Info"
                 value="{{$product->otherinfo}}"
+                required
                   ></input>
-                  @error('Pages/Duration/PEGI')
-                  <p class="text-red-500 text-ms mt-2">{{$message}}</p>
-                    @enderror
             </div>
                       <!-- Image -->
                       <div class="text-center p-3">
@@ -60,6 +58,7 @@
                 <input class="border border-gray-400 p-2 w-full"
                 type="file"
                 name="image"
+                required
                   ></input>
             </div>
                    
@@ -70,6 +69,7 @@
                 name="productprice"
                 placeholder="Product Price"
                 value="{{$product->productprice}}"
+                required
                 ></input>
             </div>
 
