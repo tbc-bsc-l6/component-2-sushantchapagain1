@@ -61,7 +61,4 @@ Route::get('/dashboard',[DashboardController::class,'count'])->middleware(['auth
 
 
 require __DIR__.'/auth.php';
-
-
-
 ?>
